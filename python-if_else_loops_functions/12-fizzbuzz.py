@@ -11,6 +11,5 @@ def fizzbuzz():
         else:
             result.append(str(i))
     print(" ".join(result).rstrip())
-    
-fizzbuzz()
+
 

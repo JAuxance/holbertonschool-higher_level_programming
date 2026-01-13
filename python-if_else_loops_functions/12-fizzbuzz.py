@@ -11,7 +11,9 @@ def fizzbuzz():
             output = i
 
         if i == 100:
-            print(output, end=" \n")
+            print(output, end="")
         else:
             print(output, end=" ")
 
+
+fizzbuzz()

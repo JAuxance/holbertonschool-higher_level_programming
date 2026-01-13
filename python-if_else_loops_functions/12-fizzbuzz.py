@@ -9,10 +9,11 @@ def fizzbuzz():
             output = "Buzz"
         else:
             output = i
-        
-        
+
         if i == 100:
-            print(output)
+            print(output, end=" \n")
         else:
             print(output, end=" ")
 
+
+fizzbuzz()

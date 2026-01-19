@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    size = len(sentence)
-    fisrtchar = sentence[0]
+    if not sentence:
+        fisrtchar = None
+        size = len(sentence)
+    else:
+        size = len(sentence)
+        fisrtchar = sentence[0]
     return size, fisrtchar
+

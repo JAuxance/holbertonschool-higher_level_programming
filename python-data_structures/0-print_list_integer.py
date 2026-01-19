@@ -2,6 +2,6 @@
 def print_list_integer(my_list=[]):
     for k in my_list:
         if k == 5:
-            print("{}".format(k), end="")
+            print("{:d}".format(k), end="")
         else:
-            print("{}".format(k))
+            print("{:d}".format(k))

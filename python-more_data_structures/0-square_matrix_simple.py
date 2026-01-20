@@ -7,12 +7,3 @@ def square_matrix_simple(matrix=[]):
             new_row.append(num ** 2)
         new_matrix.append(new_row)
     return new_matrix
-
-
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-print(square_matrix_simple(matrix))

@@ -5,7 +5,3 @@ def print_list_integer(my_list=[]):
             print("{:d}".format(k), end="")
         else:
             print("{:d}".format(k), end="\n")
-
-
-my_list = [1, 2, 3, 4, 43, 232, 333]
-print_list_integer(my_list)

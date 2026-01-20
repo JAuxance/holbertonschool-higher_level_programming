@@ -1,9 +1,3 @@
-#!/usr/bin/python3
-def add_dictionary(roman_string, RomanChar):
-    result = (RomanChar.get(x, 0) for x in roman_string)
-    return sum(result)
-
-
 def roman_to_int(roman_string):
     RomanChar = {
         "I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000

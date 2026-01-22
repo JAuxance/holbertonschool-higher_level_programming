@@ -4,7 +4,8 @@ Test cases for add_integer function
 
 Import the function:
 >>> import sys
->>> sys.path.insert(0, '..')
+>>> import os
+>>> sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 >>> add_integer = __import__('0-add_integer').add_integer
 
 Test basic addition with two integers:

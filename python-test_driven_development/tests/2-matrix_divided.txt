@@ -37,3 +37,8 @@ Test with non-integer/float element:
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test with infinity:
+    >>> matrix = [[1, 2], [3, 4]]
+    >>> matrix_divided(matrix, float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]

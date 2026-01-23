@@ -3,6 +3,8 @@
 Defines a function matrix_divided that takes a matrix (list of lists) and a divisor,
 and returns a new matrix with each element divided by the divisor, rounded to 2 decimal places.
 Raises appropriate exceptions for invalid inputs."""
+
+
 def matrix_divided(matrix, div):
     """_summary_
 

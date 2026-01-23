@@ -1,0 +1,34 @@
+=============================
+How to use 4-is_palindrome.py
+=============================
+
+This function say if a string is_palindrome or not
+
+Usage
+=====
+
+::
+
+    >>> is_palindrome = __import__('4-is_palindrome').is_palindrome
+    >>> is_palindrome("Salut")
+    False
+
+::
+
+    >>> is_palindrome("radar")
+    True
+
+::
+
+    >>> is_palindrome("A man a plan a canal Panama")
+    True
+
+Non numbers
+===========
+
+::
+
+    >>> is_palindrome(932)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+

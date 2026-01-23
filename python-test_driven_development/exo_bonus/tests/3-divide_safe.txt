@@ -1,0 +1,73 @@
+===========================
+How to use 3-divide_safe.py
+===========================
+
+This module defines a safe division function ``divide_safe(a, b)``.
+
+Usage
+=====
+
+::
+
+    >>> divide_safe = __import__('3-divide_safe').divide_safe
+    >>> divide_safe(10, 2)
+    5.0
+
+::
+
+    >>> divide_safe(9, 3)
+    3.0
+
+Division with floats
+====================
+
+::
+
+    >>> divide_safe(10.5, 2)
+    5.25
+
+::
+
+    >>> divide_safe(7, 2)
+    3.5
+
+Division by zero
+================
+
+::
+
+    >>> divide_safe(10, 0)
+    0
+
+::
+
+    >>> divide_safe(0, 0)
+    0
+
+Negative numbers
+================
+
+::
+
+    >>> divide_safe(-10, 2)
+    -5.0
+
+::
+
+    >>> divide_safe(10, -2)
+    -5.0
+
+Non-Numbers
+===========
+
+::
+
+    >>> divide_safe("hey", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an int or float
+
+::
+
+    >>> divide_safe(10, "world")
+    Traceback (most recent call last):
+    TypeError: b must be an int or float

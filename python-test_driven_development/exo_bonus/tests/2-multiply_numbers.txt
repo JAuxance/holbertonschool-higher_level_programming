@@ -1,0 +1,57 @@
+=================================
+How to use 2-multiply_numbers.py
+=================================
+
+This module defines a multiplication function ``multiply_numbers(a, b=1)``.
+
+Usage
+=====
+
+::
+
+    >>> multiply_numbers = __import__('2-multiply_numbers').multiply_numbers
+    >>> multiply_numbers(19, 20)
+    380
+
+::
+
+    >>> multiply_numbers(0, 4)
+    0
+
+::
+
+    >>> multiply_numbers(-10, 3)
+    -30
+
+::
+
+    >>> multiply_numbers(2.5, 4)
+    10.0
+
+::
+
+    >>> multiply_numbers(5)
+    5
+
+Non-Numbers
+===========
+
+``multiply_numbers()`` expects that both arguments are numbers.
+
+::
+
+    >>> multiply_numbers("hello", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an int or float
+
+::
+
+    >>> multiply_numbers(2, "world")
+    Traceback (most recent call last):
+    TypeError: b must be an int or float
+
+::
+
+    >>> multiply_numbers(None, 5)
+    Traceback (most recent call last):
+    TypeError: a must be an int or float

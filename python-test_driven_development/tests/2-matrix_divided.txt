@@ -42,3 +42,10 @@ Test with infinity:
     >>> matrix = [[1, 2], [3, 4]]
     >>> matrix_divided(matrix, float('inf'))
     [[0.0, 0.0], [0.0, 0.0]]
+
+Test with missing argument:
+    >>> matrix = [[1, 2], [3, 4]]
+    >>> matrix_divided(matrix)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'

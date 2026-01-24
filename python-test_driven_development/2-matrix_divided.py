@@ -1,27 +1,34 @@
 #!/usr/bin/python3
-"""module that divides all elements of a matrix.
-Defines a function matrix_divided that takes a matrix (list of lists)
-and a divisor, and returns a new matrix with each element divided by
-the divisor, rounded to 2 decimal places.
-Raises appropriate exceptions for invalid inputs."""
+"""Module that divides all elements of a matrix.
 
+This module provides a function to divide all elements of a matrix
+(list of lists of integers/floats) by a given divisor. The result
+is a new matrix with all elements divided and rounded to 2 decimal places.
+
+The function validates that:
+    - The matrix is a list of lists of integers or floats
+    - All rows have the same size
+    - The divisor is a number (int or float)
+    - The divisor is not zero
+"""
 
 def matrix_divided(matrix, div):
-    """_summary_
+    """Divides all elements of a matrix by a divisor.
 
     Args:
-        matrix (_type_): _description_
-        div (_type_): _description_
+        matrix (list): A list of lists of integers or floats representing
+                      the matrix to be divided.
+        div (int, float): The number to divide all matrix elements by.
 
     Raises:
-        TypeError: _description_
-        ZeroDivisionError: _description_
-        TypeError: _description_
-        TypeError: _description_
-        TypeError: _description_
+        TypeError: If matrix is not a list of lists of integers/floats.
+        TypeError: If rows of the matrix don't have the same size.
+        TypeError: If div is not a number (int or float).
+        ZeroDivisionError: If div is equal to zero.
 
     Returns:
-        _type_: _description_
+        list: A new matrix with all elements divided by div and rounded
+              to 2 decimal places.
     """
     new_matrix = []
     if not isinstance(div, (int, float)):

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 class Rectangle:
+    print_symbol = "#"
     number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-
 
     @property
     def height(self):
@@ -42,7 +43,7 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for i in range(self.__height)])
+        return "\n".join([str(self.print_symbol) * self.__width for i in range(self.__height)])
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"

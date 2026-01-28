@@ -1,11 +1,21 @@
 #!/usr/bin/python3
+"""Rectangle module."""
+
+
 class Rectangle:
+    """Rectangle with print symbol."""
+
     number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
 
     @property
     def height(self):
@@ -37,16 +47,13 @@ class Rectangle:
     def perimeter(self):
         if self.width == 0 or self.height == 0:
             return 0
-        return 2 * self.__width + 2 * self.__height
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for i in range(self.__height)])
+        return "\n".join([str(self.print_symbol) * self.__width
+                          for _ in range(self.__height)])
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"
-
-    def __del__(self):
-        print(f"Bye rectangle...")
-        Rectangle.number_of_instances -= 1

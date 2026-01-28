@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""Rectangle module."""
+
+
 class Rectangle:
-    def __init__(self,  width=0, height=0):
+    """Rectangle with area and perimeter."""
+
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
@@ -30,6 +35,8 @@ class Rectangle:
 
     def area(self):
         return self.__height * self.__width
-    
+
     def perimeter(self):
-        return 2 * self.__width + 2 * self.__height
+        if self.width == 0 or self.height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)

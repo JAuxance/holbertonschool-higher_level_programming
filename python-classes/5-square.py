@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-class Square:
-    def __init__(self, size=0):
-        if not isinstance(size, (int)):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise TypeError("size must be >= 0")
-        self.__size = size
+"""Square module."""
 
-    def area(self):
-        return self.__size * self.__size
+
+class Square:
+    """Square with printing."""
+
+    def __init__(self, size=0):
+        self.size = size
 
     @property
     def size(self):
@@ -19,25 +17,15 @@ class Square:
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
-            raise TypeError("size must be >= 0")
+            raise ValueError("size must be >= 0")
         self.__size = value
 
+    def area(self):
+        return self.__size * self.__size
+
     def my_print(self):
-        for i in range(self.size):
-            print("#" * self.size)
-
-
-my_square = Square(3)
-my_square.my_print()
-
-print("--")
-
-my_square.size = 10
-my_square.my_print()
-
-print("--")
-
-my_square.size = 0
-my_square.my_print()
-
-print("--")
+        if self.__size == 0:
+            print()
+        else:
+            for _ in range(self.__size):
+                print("#" * self.__size)

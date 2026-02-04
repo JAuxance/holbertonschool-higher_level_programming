@@ -89,4 +89,3 @@ Test multiple validation calls with different names:
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("my_int", 50)
 	>>> bg.integer_validator("another_int", 99)
-

@@ -36,38 +36,20 @@ class Rectangle(Shape):
     """Rectangle class that inherits from Shape."""
 
     def __init__(self, width, height):
-        """Initialize a rectangle with given width and height.
-
-        Args:
-            width: The width of the rectangle.
-            height: The height of the rectangle.
-        """
+        """Initialize a rectangle with given width and height."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Calculate and return the area of the rectangle.
-
-        Returns:
-            The area of the rectangle (width x height).
-        """
+        """Calculate and return the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Calculate and return the perimeter of the rectangle.
-
-        Returns:
-            The perimeter of the rectangle (2 x (width + height)).
-        """
+        """Calculate and return the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """
-    Print the area and perimeter of a shape using duck typing.
-
-    Args:
-        shape: Any object that has area() and perimeter() methods.
-    """
+    """Print the area and perimeter of a shape using duck typing."""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))

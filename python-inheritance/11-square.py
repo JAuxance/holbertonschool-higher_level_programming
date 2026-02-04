@@ -31,9 +31,9 @@ class Square(Rectangle):
         return self.__size * self.__size
 
     def __str__(self):
-        """Return the rectangle description.
+        """Return the square description.
 
         Returns:
             String in format: [Square] <width>/<height>
         """
-        return f"[Square]{self.__size}/{self.height}"
+        return f"[Square] {self.__size}/{self.__size}"

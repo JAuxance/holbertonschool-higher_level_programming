@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""module : this function returns the list of available attributes and methods of an object"""
+"""module : this function returns the list of available
+attributes and methods of an object"""
 
 
 def lookup(obj):

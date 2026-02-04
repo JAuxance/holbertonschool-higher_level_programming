@@ -69,16 +69,19 @@ Test integer_validator() with negative number -1 raises ValueError:
 	...
 	ValueError: height must be greater than 0
 
-Test integer_validator() with bool True (inherits from int):
+Test integer_validator() with bool True (should raise TypeError):
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("bool_val", True)
+	Traceback (most recent call last):
+	...
+	TypeError: bool_val must be an integer
 
-Test integer_validator() with bool False (inherits from int but is 0):
+Test integer_validator() with bool False (should raise TypeError):
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("bool_val", False)
 	Traceback (most recent call last):
 	...
-	ValueError: bool_val must be greater than 0
+	TypeError: bool_val must be an integer
 
 Test integer_validator() with two valid integers:
 	>>> bg = BaseGeometry()

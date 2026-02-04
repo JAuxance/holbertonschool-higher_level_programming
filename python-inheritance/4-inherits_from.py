@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# This function checks if an object is an instance of a subclass (not the exact class)
+"""Module that defines inherits_from function"""
+
+
 def inherits_from(obj, a_class):
     """
     Checks if obj is an instance of a subclass of a_class (not the class itself).

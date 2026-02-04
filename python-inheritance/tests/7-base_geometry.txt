@@ -1,124 +1,102 @@
-The ``7-base_geometry`` module
-======================
+# Tests for BaseGeometry class
+# Import the BaseGeometry class
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Using ``BaseGeometry``
--------------------
+# Test 1: Create an instance
+>>> bg = BaseGeometry()
 
-Import the class:
+# Test 2: Call area() method (should raise exception)
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+# Test 3: Validate a positive integer
+>>> bg.integer_validator("my_int", 12)
 
-Create an instance:
+# Test 4: Validate another positive integer
+>>> bg.integer_validator("width", 89)
 
-    >>> bg = BaseGeometry()
+# Test 5: Validate zero (should raise ValueError)
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
 
-Test area() method (should raise exception):
+# Test 6: Validate negative integer (should raise ValueError)
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
 
-    >>> bg.area()
-    Traceback (most recent call last):
-    ...
-    Exception: area() is not implemented
+# Test 7: Validate with a string (should raise TypeError)
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
 
-Test integer_validator with valid positive integer:
+# Test 8: Validate with a float (should raise TypeError)
+>>> bg.integer_validator("height", 3.14)
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
 
-    >>> bg.integer_validator("my_int", 12)
+# Test 9: Validate with a list (should raise TypeError)
+>>> bg.integer_validator("data", [1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: data must be an integer
 
-    >>> bg.integer_validator("width", 89)
+# Test 10: Validate with a tuple (should raise TypeError)
+>>> bg.integer_validator("coords", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: coords must be an integer
 
-Test integer_validator with zero:
+# Test 11: Validate with a dict (should raise TypeError)
+>>> bg.integer_validator("info", {"key": "value"})
+Traceback (most recent call last):
+...
+TypeError: info must be an integer
 
-    >>> bg.integer_validator("age", 0)
-    Traceback (most recent call last):
-    ...
-    ValueError: age must be greater than 0
+# Test 12: Validate with a set (should raise TypeError)
+>>> bg.integer_validator("nums", {1, 2, 3})
+Traceback (most recent call last):
+...
+TypeError: nums must be an integer
 
-Test integer_validator with negative integer:
+# Test 13: Validate with a boolean (should raise TypeError)
+>>> bg.integer_validator("flag", True)
+Traceback (most recent call last):
+...
+TypeError: flag must be an integer
 
-    >>> bg.integer_validator("distance", -4)
-    Traceback (most recent call last):
-    ...
-    ValueError: distance must be greater than 0
+# Test 14: Validate with None (should raise TypeError)
+>>> bg.integer_validator("value", None)
+Traceback (most recent call last):
+...
+TypeError: value must be an integer
 
-Test integer_validator with non-integer (string):
+# Test 15: Call integer_validator with one argument (missing value)
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
-    >>> bg.integer_validator("name", "John")
-    Traceback (most recent call last):
-    ...
-    TypeError: name must be an integer
+# Test 16: Call integer_validator with no arguments
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Test integer_validator with non-integer (float):
+# Test 17: Call area() with an argument
+>>> bg.area(5)
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
-    >>> bg.integer_validator("height", 3.14)
-    Traceback (most recent call last):
-    ...
-    TypeError: height must be an integer
-
-Test integer_validator with non-integer (list):
-
-    >>> bg.integer_validator("data", [1, 2, 3])
-    Traceback (most recent call last):
-    ...
-    TypeError: data must be an integer
-
-Test integer_validator with non-integer (tuple):
-
-    >>> bg.integer_validator("coords", (1, 2))
-    Traceback (most recent call last):
-    ...
-    TypeError: coords must be an integer
-
-Test integer_validator with non-integer (dict):
-
-    >>> bg.integer_validator("info", {"key": "value"})
-    Traceback (most recent call last):
-    ...
-    TypeError: info must be an integer
-
-Test integer_validator with non-integer (set):
-
-    >>> bg.integer_validator("nums", {1, 2, 3})
-    Traceback (most recent call last):
-    ...
-    TypeError: nums must be an integer
-
-Test integer_validator with non-integer (boolean True):
-
-    >>> bg.integer_validator("flag", True)
-    Traceback (most recent call last):
-    ...
-    TypeError: flag must be an integer
-
-Test integer_validator with non-integer (None):
-
-    >>> bg.integer_validator("value", None)
-    Traceback (most recent call last):
-    ...
-    TypeError: value must be an integer
-
-Test integer_validator with one argument (missing value):
-
-    >>> bg.integer_validator("age")
-    Traceback (most recent call last):
-    ...
-    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
-
-Test integer_validator with no arguments:
-
-    >>> bg.integer_validator()
-    Traceback (most recent call last):
-    ...
-    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-Test area() with an argument:
-
-    >>> bg.area(5)
-    Traceback (most recent call last):
-    ...
-    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
-
-Test integer_validator with three arguments:
-
-    >>> bg.integer_validator("name", 1, 2)
-    Traceback (most recent call last):
-    ...
-    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+# Test 18: Call integer_validator with three arguments
+>>> bg.integer_validator("name", 1, 2)
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given

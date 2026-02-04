@@ -6,4 +6,5 @@ class MyList(list):
         Prints the list in sorted order (ascending).
         Does not modify the original list.
         """
-        print(sorted(self))
+        if isinstance(list, int):
+            print(sorted(self))

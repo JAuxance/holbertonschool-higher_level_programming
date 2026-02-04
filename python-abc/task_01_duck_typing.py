@@ -20,27 +20,15 @@ class Circle(Shape):
     """Circle class that inherits from Shape."""
 
     def __init__(self, radius):
-        """Initialize a circle with a given radius.
-
-        Args:
-            radius: The radius of the circle.
-        """
+        """Initialize a circle with a given radius."""
         self.radius = radius
 
     def area(self):
-        """Calculate and return the area of the circle.
-
-        Returns:
-            The area of the circle (π x radius²).
-        """
+        """Calculate and return the area of the circle."""
         return 3.141592653589793 * self.radius**2
 
     def perimeter(self):
-        """Calculate and return the perimeter of the circle.
-
-        Returns:
-            The perimeter of the circle (2 x π x radius).
-        """
+        """Calculate and return the perimeter of the circle."""
         return 2 * 3.141592653589793 * self.radius
 
 

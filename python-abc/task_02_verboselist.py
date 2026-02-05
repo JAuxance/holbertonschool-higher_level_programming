@@ -15,7 +15,7 @@ class VerboseList(list):
         return super().append(object)
 
     def extend(self, iterable):
-        """Extend the list with items from an iterable and print a notification.
+        """Extend the list with item from an iterable and print a notification.
 
         Args:
             iterable: An iterable containing items to add to the list.

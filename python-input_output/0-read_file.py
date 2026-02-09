@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 def read_file(filename=""):
-        with open(filename):
-            for line in filename:
-                print(line)
+    """Reads a text file and prints its content to stdout.
 
-
-read_file("my_file_0.txt")
+    Args:
+        filename (str): The name of the file to read.
+    """
+    with open(filename, "r") as file:
+        for line in file:
+            print((line), end="")

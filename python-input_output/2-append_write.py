@@ -9,7 +9,9 @@ def append_write(filename="", text=""):
     Returns:
         int: The number of characters written.
     """
-    file1 = open(filename, "a")
-    chars_written = file1.write(text)
-    file1.close()
-    return chars_written
+    with open(filename, "a") as file:
+        return file.write(text)
+
+
+nb_characters_added = append_write("file_append.txt", "This School is so cool!\n")
+print(nb_characters_added)

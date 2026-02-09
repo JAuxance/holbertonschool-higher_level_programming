@@ -9,7 +9,5 @@ def write_file(filename="", text=""):
     Returns:
         int: The number of characters written.
     """
-    file = open(filename, "w+")
-    chars_written = file.write(text)
-    file.close()
-    return chars_written
+    with open(filename, "w+") as file:
+        return file.write(text)

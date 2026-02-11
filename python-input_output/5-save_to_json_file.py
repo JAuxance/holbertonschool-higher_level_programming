@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+5-save_to_json_file.py
+Saves an object to a JSON file.
+"""
 import json
 
 

@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+3-to_json_string.py
+Returns the JSON representation of an object.
+"""
 import json
 
 

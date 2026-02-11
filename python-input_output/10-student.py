@@ -22,8 +22,11 @@ class Student:
         """
         Retrieve a dictionary representation of a Student instance.
 
+        Args:
+            attrs (list): List of attribute names to retrieve (optional).
+
         Returns:
-            dict: Dictionary containing all attributes.
+            dict: Dictionary containing requested or all attributes.
         """
         if attrs is None:
             return self.__dict__

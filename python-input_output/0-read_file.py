@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-read_file module
-Reads and prints the content of a text file (UTF8).
-"""
+"""Module 0-read_file: Reads and prints the content of a text file (UTF8)."""
 def read_file(filename=""):
     """
     Reads a text file (UTF8) and prints it to stdout

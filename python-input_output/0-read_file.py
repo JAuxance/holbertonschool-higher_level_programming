@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-0-read_file.py
+read_file module
 Reads and prints the content of a text file (UTF8).
 """
 def read_file(filename=""):

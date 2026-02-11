@@ -30,6 +30,18 @@ class Student:
         """
         if attrs is None:
             return self.__dict__
-        if isinstance(attrs, list) and all(isinstance(element, str) for element in attrs):
+        if isinstance(attrs, list):
             return {key: value for key, value in self.__dict__.items() if key in attrs}
         return self.__dict__
+
+
+student_1 = Student("John", "Doe", 23)
+student_2 = Student("Bob", "Dylan", 27)
+
+j_student_1 = student_1.to_json()
+j_student_2 = student_2.to_json(['first_name', 'age'])
+j_student_3 = student_2.to_json(['middle_name', 'age'])
+
+print(j_student_1)
+print(j_student_2)
+print(j_student_3)

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module 4-from_json_string: Returns an object represented by a JSON string."""
+"""
+Module 4-from_json_string: Returns an object represented by a JSON string.
+"""
 import json
 
 

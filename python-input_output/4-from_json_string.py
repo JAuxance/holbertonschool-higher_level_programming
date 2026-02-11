@@ -5,10 +5,12 @@ import json
 
 def from_json_string(my_str):
     """
-    Returns an object represented by a JSON string.
+    Convert a JSON string to a Python object.
+
     Args:
-        my_str (str): The JSON string to convert to an object.
+        my_str (str): JSON string to decode.
+
     Returns:
-        object: The Python object represented by the JSON string.
+        Any: Python object decoded from the JSON string.
     """
     return json.loads(my_str)

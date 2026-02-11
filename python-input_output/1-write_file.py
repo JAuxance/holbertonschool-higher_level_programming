@@ -3,6 +3,8 @@
 1-write_file.py
 Writes text to a file (UTF8).
 """
+
+
 def write_file(filename="", text=""):
     """Writes text to a file.
 

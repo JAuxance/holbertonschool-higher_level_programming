@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module 2-append_write: Appends text to a file (UTF8)."""
 
+
 def append_write(filename="", text=""):
     """
     Appends text to a file.

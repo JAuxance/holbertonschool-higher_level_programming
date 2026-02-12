@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 import json
-import pickle
-
 
 def serialize_and_save_to_file(data, filename):
     """Serialize data to JSON and save it to a file.

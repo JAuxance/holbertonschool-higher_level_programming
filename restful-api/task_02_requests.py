@@ -62,7 +62,7 @@ def fetch_and_save_posts():
         print("Status Code: None")
         return
 
-    print(f"Status code: {response.status_code}")
+    print(f"Status Code: {response.status_code}")
     if response.ok:
         try:
             result = response.json()

@@ -1,78 +1,68 @@
 #!/usr/bin/python3
-
 """
-This module provides functions to interact with a REST API and
-process the data.
+Module for fetching and processing posts from a REST API.
 
-Functions:
-    fetch_and_print_posts():
-        Fetches posts from a REST API and prints their titles.
-
-    fetch_and_save_posts():
-        Fetches posts from a REST API, filters the data, and saves
-        it to a CSV file.
+This module provides functions to fetch posts from the JSONPlaceholder
+API and either print them or save them to a CSV file.
 """
 import requests
 import csv
 
+URL = "https://jsonplaceholder.typicode.com/posts"
+
 
 def fetch_and_print_posts():
     """
-    Fetches posts from a REST API and prints their titles.
+    Fetch posts from JSONPlaceholder API and print their titles.
 
-    This function sends a GET request to the JSONPlaceholder API to retrieve
-    a list of posts. It then prints the title of each post to the console.
+    Retrieves all posts from the JSONPlaceholder API and prints the
+    HTTP status code of the response. If successful, prints the title
+    of each post.
+
+    Args:
+        None
 
     Returns:
         None
     """
-    url = "https://jsonplaceholder.typicode.com/posts"
-    try:
-        response = requests.get(url)
-    except requests.RequestException:
-        return
-
+    response = requests.get(URL)
     print(f"Status Code: {response.status_code}")
+    
     if response.ok:
-        try:
-            result = response.json()
-        except ValueError:
-            return
-        for post in result:
+        posts = response.json()
+        for post in posts:
             print(post["title"])
 
 
 def fetch_and_save_posts():
     """
-    Fetches posts from a REST API, filters the data, and saves
-    it to a CSV file.
+    Fetch posts from JSONPlaceholder API and save them to a CSV file.
 
-    This function sends a GET request to the JSONPlaceholder API to
-    a list of posts. It filters the data to include only the post ID, title,
-    and body, and writes the filtered data to a CSV file named 'posts.csv'.
+    Retrieves all posts from the JSONPlaceholder API and saves the
+    post ID, title, and body to a CSV file named 'posts.csv'.
+
+    Args:
+        None
 
     Returns:
         None
     """
-    try:
-        response = requests.get("https://jsonplaceholder.typicode.com/posts")
-    except requests.RequestException:
-        return
+    response = requests.get(URL)
+    
     if response.ok:
-        try:
-            result = response.json()
-        except ValueError:
-            return
-        filtered_posts = []
-        for post in result:
-            new_post = {
+        posts = response.json()
+        
+        structured_posts = [
+            {
                 "id": post["id"],
                 "title": post["title"],
                 "body": post["body"]
             }
-            filtered_posts.append(new_post)
-        with open("posts.csv", "w", newline="", encoding="utf-8") as file:
-            writer = csv.DictWriter(
-                file, fieldnames=["id", "title", "body"])
+            for post in posts
+        ]
+        
+        with open("posts.csv", mode="w", newline="", encoding="utf-8") as file:
+            fieldnames = ["id", "title", "body"]
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(filtered_posts)
+            writer.writerows(structured_posts)

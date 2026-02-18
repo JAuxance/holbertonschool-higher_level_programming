@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import requests
-import csv
 
 """
 This module provides functions to interact with a REST API and process the data.
@@ -12,6 +10,8 @@ Functions:
     fetch_and_save_posts():
         Fetches posts from a REST API, filters the data, and saves it to a CSV file.
 """
+import requests
+import csv
 
 
 def fetch_and_print_posts():

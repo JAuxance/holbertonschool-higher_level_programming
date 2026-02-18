@@ -15,6 +15,15 @@ Functions:
 
 
 def fetch_and_print_posts():
+    """
+    Fetches posts from a REST API and prints their titles.
+
+    This function sends a GET request to the JSONPlaceholder API to retrieve
+    a list of posts. It then prints the title of each post to the console.
+
+    Returns:
+        None
+    """
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
     print(f"Status code: {response.status_code}")
@@ -25,6 +34,16 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
+    """
+    Fetches posts from a REST API, filters the data, and saves it to a CSV file.
+
+    This function sends a GET request to the JSONPlaceholder API to retrieve
+    a list of posts. It filters the data to include only the post ID, title,
+    and body, and writes the filtered data to a CSV file named 'posts.csv'.
+
+    Returns:
+        None
+    """
     response = requests.get("https://jsonplaceholder.typicode.com/posts")
     if response.ok:
         result = response.json()

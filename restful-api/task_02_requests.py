@@ -65,7 +65,6 @@ def fetch_and_save_posts():
                 })
 
 
-#!/usr/bin/python3
 """
 Module for fetching and processing posts from a REST API.
 

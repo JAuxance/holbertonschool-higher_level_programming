@@ -38,7 +38,6 @@ def fetch_and_print_posts():
         try:
             result = response.json()
         except ValueError:
-            print("Status code: None")
             return
         for post in result:
             print(post["title"])

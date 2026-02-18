@@ -61,13 +61,10 @@ def fetch_and_save_posts():
     except requests.RequestException:
         print("Status Code: None")
         return
-
-    print(f"Status Code: {response.status_code}")
     if response.ok:
         try:
             result = response.json()
         except ValueError:
-            print("Status Code: None")
             return
         filtered_posts = []
         for post in result:

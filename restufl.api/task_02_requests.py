@@ -25,10 +25,17 @@ def fetch_and_print_posts():
         None
     """
     url = "https://jsonplaceholder.typicode.com/posts"
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except requests.RequestException:
+        print("Status code: None")
+
     print(f"Status code: {response.status_code}")
     if response.ok:
-        result = response.json()
+        try:
+            result = response.json()
+        except requests.RequestException:
+            print("Status code: None")
         for post in result:
             print(post["title"])
 
@@ -44,9 +51,17 @@ def fetch_and_save_posts():
     Returns:
         None
     """
-    response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    try:
+        response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    except requests.RequestException:
+        print("Status code: None")
+
     if response.ok:
-        result = response.json()
+        try:
+            result = response.json()
+        except requests.RequestException:
+            print("Status code: None")
+
         filtered_posts = []
         for post in result:
             new_post = {
@@ -55,8 +70,8 @@ def fetch_and_save_posts():
                 "body": post["body"]
             }
             filtered_posts.append(new_post)
-            with open("posts.csv", "w+") as file:
-                writer = csv.DictWriter(
-                    file, fieldnames=["id", "title", "body"])
-                writer.writeheader()
-                writer.writerows(filtered_posts)
+        with open("posts.csv", "w+") as file:
+            writer = csv.DictWriter(
+                file, fieldnames=["id", "title", "body"])
+            writer.writeheader()
+            writer.writerows(filtered_posts)

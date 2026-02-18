@@ -58,7 +58,7 @@ def fetch_and_save_posts():
     except requests.RequestException:
         print("Status code: None")
         return
-    
+
     print(f"Status code: {response.status_code}")
     if response.ok:
         try:

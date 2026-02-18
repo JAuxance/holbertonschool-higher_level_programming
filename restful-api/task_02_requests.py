@@ -30,10 +30,10 @@ def fetch_and_print_posts():
     try:
         response = requests.get(url)
     except requests.RequestException:
-        print("Status code: None")
+        print("Status Code: None")
         return
 
-    print(f"Status code: {response.status_code}")
+    print(f"Status Code: {response.status_code}")
     if response.ok:
         try:
             result = response.json()
@@ -59,7 +59,7 @@ def fetch_and_save_posts():
     try:
         response = requests.get("https://jsonplaceholder.typicode.com/posts")
     except requests.RequestException:
-        print("Status code: None")
+        print("Status Code: None")
         return
 
     print(f"Status code: {response.status_code}")
@@ -67,7 +67,7 @@ def fetch_and_save_posts():
         try:
             result = response.json()
         except ValueError:
-            print("Status code: None")
+            print("Status Code: None")
             return
         filtered_posts = []
         for post in result:

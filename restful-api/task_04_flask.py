@@ -10,25 +10,25 @@ user_data = {
 
 @app.route("/")
 def home():
-    return "Welcome to the Flask API!"
+    return "Welcome to the Flask API!", 200
 
 
 @app.route("/data", methods=["GET"])
 def get_all_user():
     names = [user["username"] for user in user_data.values()]
-    return jsonify(names)
+    return jsonify(names), 200
 
 
 @app.route("/status", methods=["GET"])
 def status():
-    return "OK"
+    return "OK", 200
 
 
 @app.route("/users/<username>", methods=["GET"])
 def get_user(username):
     user_info = user_data.get(username)
     if user_info:
-        return jsonify(user_info)
+        return jsonify(user_info), 200
     else:
         return jsonify({"error": "User not found"}), 404
 

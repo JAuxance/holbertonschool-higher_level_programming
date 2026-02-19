@@ -14,8 +14,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 user_data = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
+
 }
 
 
@@ -72,9 +71,9 @@ def add_user():
     if not new_user:
         return jsonify(error="Invalid JSON"), 400
     if "username" not in new_user:
-        return jsonify(error="Username is required"), 400
+        return jsonify({"error": "Username is required"}), 400
     if new_user["username"] in user_data:
-        return jsonify(error="Username already exists"), 409
+        return jsonify({"error": "Username already exists"}), 409
     username = new_user["username"]
     user_data[username] = {
         "username": username,

@@ -68,13 +68,18 @@ def add_user():
         flask.Response: Confirmation message and created user data.
     """
     new_user = request.get_json()
+    
     if not new_user:
         return jsonify(error="Invalid JSON"), 400
+    
     if "username" not in new_user:
         return jsonify({"error": "Username is required"}), 400
+    
     if new_user["username"] in user_data:
         return jsonify({"error": "Username already exists"}), 409
+    
     username = new_user["username"]
+    
     user_data[username] = {
         "username": username,
         "name": new_user.get("name", ""),

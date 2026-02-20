@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Flask API with basic and JWT authentication.
+
+This module provides endpoints for user management, authentication (basic and JWT),
+and demonstrates protected routes. It uses Flask, flask_httpauth, and flask_jwt_extended.
+"""
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
@@ -13,26 +19,31 @@ jwt = JWTManager(app)
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
+    """Handle missing or invalid JWT token errors."""
     return jsonify({"error": "Missing or invalid token"}), 401
 
 
 @jwt.invalid_token_loader
 def handle_invalid_token_error(err):
+    """Handle invalid JWT token errors."""
     return jsonify({"error": "Invalid token"}), 401
 
 
 @jwt.expired_token_loader
 def handle_expired_token_error(err, ):
+    """Handle expired JWT token errors."""
     return jsonify({"error": "Token has expired"}), 401
 
 
 @jwt.revoked_token_loader
 def handle_revoked_token_error(err):
+    """Handle revoked JWT token errors."""
     return jsonify({"error": "Token has been revoked"}), 401
 
 
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
+    """Handle errors when a fresh JWT token is required."""
     return jsonify({"error": "Fresh token required"}), 401
 
 
@@ -44,6 +55,15 @@ user_data = {
 
 @auth.verify_password
 def verfify_password(username, password):
+    """Verify a user's password for HTTP Basic Auth.
+
+    Args:
+        username (str): The username provided in the request.
+        password (str): The plaintext password provided in the request.
+
+    Returns:
+        str or None: The username if credentials are valid, None otherwise.
+    """
     if username in user_data and \
             check_password_hash(user_data[username]["password"], password):
         return username
@@ -70,6 +90,14 @@ def status():
 
 @app.route("/users/<username>", methods=["GET"])
 def get_user(username):
+    """Return data for a specific user by username.
+
+    Args:
+        username (str): The username to look up.
+
+    Returns:
+        flask.Response: User data if found, or an error message with 404.
+    """
     user_info = user_data.get(username)
     if user_info:
         return jsonify(user_info), 200
@@ -115,11 +143,21 @@ def add_user():
 @app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def auth_message():
+    """Return a success message for Basic Auth protected route."""
     return "Basic Auth: Access Granted", 200
 
 
 @app.route("/login", methods=["POST"])
 def loginAuth():
+    """Authenticate a user and return a JWT access token.
+
+    Expected JSON keys:
+        - username (str): The user's username.
+        - password (str): The user's plaintext password.
+
+    Returns:
+        flask.Response: A JWT access token on success, or an error message.
+    """
     user = request.get_json()
     if not "username" in user\
             or not "password" in user:
@@ -137,12 +175,18 @@ def loginAuth():
 @app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def access_granted():
+    """Return a success message for JWT protected route."""
     return ("JWT Auth: Access Granted"), 200
 
 
 @app.route("/admin-only", methods=["GET"])
 @jwt_required()
 def admin_only():
+    """Return a success message only for users with the admin role.
+
+    Returns:
+        flask.Response: Success message if role is admin, or 403 error.
+    """
     claims = get_jwt()
     if claims["role"] == "admin":
         return jsonify("Admin Access: Granted"), 200

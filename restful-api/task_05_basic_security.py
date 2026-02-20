@@ -188,7 +188,7 @@ def admin_only():
     """
     claims = get_jwt()
     if claims["role"] == "admin":
-        return jsonify("Admin Access: Granted"), 200
+        return "Admin Access: Granted", 200
     else:
         return jsonify({"error": "Admin access required"}), 403
 

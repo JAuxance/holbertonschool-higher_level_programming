@@ -1,3 +1,4 @@
-SHOW
-CREATE TABLE
+SELECT
+    *
+FROM
     `first_table`;

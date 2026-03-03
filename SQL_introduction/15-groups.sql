@@ -1,3 +1,4 @@
+-- Count records grouped by score, ordered by count descending
 SELECT
     score,
     COUNT(*) AS number

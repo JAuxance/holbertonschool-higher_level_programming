@@ -1,3 +1,4 @@
+-- List all databases
 SELECT
     SCHEMA_NAME
 FROM

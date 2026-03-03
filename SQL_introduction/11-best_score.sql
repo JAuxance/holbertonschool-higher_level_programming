@@ -1,3 +1,4 @@
+-- List records with score >= 10 ordered by score descending
 SELECT
     score,
     name

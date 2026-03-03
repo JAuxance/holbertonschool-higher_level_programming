@@ -1,3 +1,4 @@
+-- List records with a non-null name, ordered by score descending
 SELECT
     score,
     name

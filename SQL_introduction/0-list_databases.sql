@@ -1,5 +1,5 @@
 -- List all databases
 SELECT
-    SCHEMA_NAME
+    Database
 FROM
     INFORMATION_SCHEMA.SCHEMATA;

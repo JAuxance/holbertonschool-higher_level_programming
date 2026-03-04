@@ -1,0 +1,2 @@
+-- Query cities table filtered by state_id matching California from states table, ordered by id ascending
+SELECT id, name FROM cities WHERE state_id = (SELECT id FROM states WHERE name = 'California') ORDER BY id ASC;

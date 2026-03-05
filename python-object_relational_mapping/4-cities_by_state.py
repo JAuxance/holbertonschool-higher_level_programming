@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Displays all values in the states table of hbtn_0e_0_usa
-where the name matches the argument (SAFE)."""
+"""Lists all cities from the database hbtn_0e_4_usa."""
 import MySQLdb
 import sys
 

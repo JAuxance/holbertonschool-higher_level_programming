@@ -7,7 +7,7 @@ if (isNaN(size)) {
   console.log('Missing size');
 } else {
   while (a < size) {
-    xCreator = xCreator + ['x'];
+    xCreator = xCreator + ['X'];
     a = a + 1;
   }
   while (b < size) {

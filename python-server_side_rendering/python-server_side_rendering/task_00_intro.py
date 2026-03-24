@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""Generate invitation files from a text template and attendees data."""
+
+
 def generate_invitations(template, attendees):
+    """Generate one invitation file per attendee from the given template."""
     if not isinstance(template, str):
         print("Template must be a string.")
         return

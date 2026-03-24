@@ -1,3 +1,5 @@
+"""Test script for the invitation generator."""
+
 import os
 
 # Main file content

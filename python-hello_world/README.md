@@ -1,22 +1,22 @@
 # 📂 python-hello_world
 
-This project contains the first Python exercises of the curriculum. It focuses on basic output, string formatting, concatenation, slicing, and simple script execution.
+Repository of beginner Python scripts demonstrating basic printing, formatting, and simple string operations. Educational goal: practice Python fundamentals and write clear, minimal scripts.
 
-## Files
+## Contents
+- `2-print.py`: Simple print example.
+- `3-print_number.py`: Print an integer with proper formatting.
+- `4-print_float.py`: Print a float with controlled precision.
+- `5-print_string.py`: Print and manipulate strings.
+- `6-concat.py`: Concatenate strings.
+- `7-edges.py`: Work with first and last characters of a string.
+- `8-concat_edges.py`: Concatenate edges of two strings.
+- `9-easter_egg.py`: Small extra script (may be executable).
 
-| File | Description |
-|------|-------------|
-| `2-print.py` | Print a simple string |
-| `3-print_number.py` | Print an integer using formatted output |
-| `4-print_float.py` | Print a floating-point number with two decimals |
-| `5-print_string.py` | Print a string multiple times and extract a slice |
-| `6-concat.py` | Concatenate strings into a sentence |
-| `7-edges.py` | Display selected parts of a string |
-| `8-concat_edges.py` | Build a new string from specific slices |
-| `9-easter_egg.py` | Print the Zen of Python |
+## Usage
+- Run a script: `python3 <filename>.py`.
+- To make a script directly executable, include `#!/usr/bin/python3` at the top and run `chmod +x <filename>.py`.
 
-## Running a script
-
-```bash
-python3 <filename>.py
-```
+## Conventions
+- Style: follow PEP8 where possible.
+- Scripts: prefer small, focused functions and clear output.
+- Tests: keep examples simple and easy to run.

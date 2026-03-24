@@ -1,26 +1,26 @@
 # 📂 python-if_else_loops_functions
 
-Python exercises focused on conditionals, loops, and functions.
+This project introduces Python control flow with conditionals, loops, and reusable functions. The exercises build confidence with comparisons, iteration patterns, and small utility functions.
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `0-positive_or_negative.py` | Determine if a random integer is positive, negative, or zero |
+| `0-positive_or_negative.py` | Tell whether a random number is positive, negative, or zero |
 | `1-last_digit.py` | Print the last digit of a random number with conditions |
-| `2-print_alphabet.py` | Print the lowercase alphabet without a newline |
-| `3-print_alphabt.py` | Print lowercase alphabet except `q` and `e` |
-| `4-print_hexa.py` | Print numbers 0 to 98 in decimal and hexadecimal |
-| `5-print_comb2.py` | Print all possible two-digit combinations |
-| `6-print_comb3.py` | Print all unique combinations of two different digits |
-| `7-islower.py` | Check if a character is lowercase |
+| `2-print_alphabet.py` | Print the lowercase alphabet |
+| `3-print_alphabt.py` | Print the lowercase alphabet except `q` and `e` |
+| `4-print_hexa.py` | Print numbers from `0` to `98` in decimal and hexadecimal |
+| `5-print_comb2.py` | Print all two-digit combinations |
+| `6-print_comb3.py` | Print unique combinations of two digits |
+| `7-islower.py` | Check whether a character is lowercase |
 | `8-uppercase.py` | Convert a string to uppercase |
-| `9-print_last_digit.py` | Print the last digit of a number |
-| `10-add.py` | Function that adds two integers |
-| `11-pow.py` | Function that computes `a` to the power of `b` |
-| `12-fizzbuzz.py` | Print numbers 1 to 100 with FizzBuzz rules |
+| `9-print_last_digit.py` | Return and print the last digit of a number |
+| `10-add.py` | Add two integers |
+| `11-pow.py` | Compute `a` raised to the power of `b` |
+| `12-fizzbuzz.py` | Print the FizzBuzz sequence from `1` to `100` |
 
-## Usage
+## Running a script
 
 ```bash
 python3 <filename>.py

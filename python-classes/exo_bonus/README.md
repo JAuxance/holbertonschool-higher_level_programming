@@ -1,25 +1,15 @@
-# Python Classes - Bonus Exercises
+# 📂 python-classes/exo_bonus
 
-## Description
+This directory contains bonus work for the main `python-classes` project. It extends the object-oriented practice with an additional `Rectangle` implementation and keeps the same educational focus on encapsulation and validation.
 
-This directory contains bonus exercises to strengthen understanding of Python classes.
+## Files
 
-## Objectives
+| File | Description |
+|------|-------------|
+| `i-bis_rectangle.py` | Bonus `Rectangle` class with validated `width` and `height` properties |
 
-- Reinforce Python class fundamentals
-- Practice encapsulation and special methods
-- Implement advanced features
-
-## Structure
-
-Exercise files follow the project's standard naming convention.
-
-## Usage
+## Running a script
 
 ```bash
-python3 filename.py
+python3 i-bis_rectangle.py
 ```
-
-## Notes
-
-Supplementary exercises for the main python-classes module.

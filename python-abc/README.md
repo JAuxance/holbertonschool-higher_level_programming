@@ -1,19 +1,19 @@
 # 📂 python-abc
 
-Python exercises on OOP advanced concepts: Abstract Base Classes, duck typing, multiple inheritance, mixins, and custom iterators.
+This project covers advanced object-oriented concepts in Python, including abstract base classes, duck typing, custom iterators, multiple inheritance, and mixins.
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `task_00_abc.py` | `Animal` ABC with `Dog` and `Cat` subclasses implementing `sound()` |
-| `task_01_duck_typing.py` | `Shape` ABC with `Circle` and `Rectangle` implementing `area()` / `perimeter()` |
-| `task_02_verboselist.py` | `VerboseList` subclass of `list` printing notifications on add/remove |
-| `task_03_countediterator.py` | `CountedIterator` wrapping any iterator and tracking the iteration count |
-| `task_04_flyingfish.py` | `FlyingFish` demonstrating multiple inheritance from `Fish` and `Bird` |
-| `task_05_dragon.py` | `Dragon` mixing `SwimMixin` and `FlyMixin` to demonstrate mixin patterns |
+| `task_00_abc.py` | Build an abstract `Animal` hierarchy |
+| `task_01_duck_typing.py` | Model shapes with shared behavior and duck typing |
+| `task_02_verboselist.py` | Extend `list` with custom feedback messages |
+| `task_03_countediterator.py` | Wrap an iterator and count consumed items |
+| `task_04_flyingfish.py` | Demonstrate multiple inheritance with fish and bird traits |
+| `task_05_dragon.py` | Compose flying and swimming behavior with mixins |
 
-## Usage
+## Running a script
 
 ```bash
 python3 <filename>.py

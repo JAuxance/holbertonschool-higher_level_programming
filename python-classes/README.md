@@ -1,20 +1,20 @@
 # 📂 python-classes
 
-Python exercises introducing OOP with a `Square` class: attributes, properties, validation, and area/perimeter computation.
+This project introduces object-oriented programming through a progressive `Square` class. The exercises cover private attributes, validation, properties, computed area, and custom string-based rendering.
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `0-square.py` | Empty class `Square` |
-| `1-square.py` | `Square` with a private `size` attribute |
-| `2-square.py` | `Square` with size validation (type and value) |
-| `3-square.py` | `Square` with an `area()` method |
-| `4-square.py` | `Square` with a `size` property (getter/setter) |
-| `5-square.py` | `Square` with a `my_print()` method using `#` |
-| `6-square.py` | `Square` with a `position` attribute and pattern printing |
+| `0-square.py` | Define an empty `Square` class |
+| `1-square.py` | Add a private `size` attribute |
+| `2-square.py` | Validate the `size` attribute |
+| `3-square.py` | Add an `area()` method |
+| `4-square.py` | Expose `size` through a property |
+| `5-square.py` | Print a square with `#` characters |
+| `6-square.py` | Add a `position` attribute for offset printing |
 
-## Usage
+## Running a script
 
 ```bash
 python3 <filename>.py

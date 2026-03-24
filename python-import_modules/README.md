@@ -1,23 +1,21 @@
-# 📂 Python - Import & Modules
+# 📂 python-import_modules
 
-This directory contains Python scripts that demonstrate the use of importing modules and working with them. Each script focuses on a specific concept related to Python modules and imports.
+This project explores Python imports, reusable modules, and command-line arguments. Each script practices loading functions or variables from other files and using the standard `sys` interface.
 
 ## Files
 
-### 0-add.py
-A script that imports a function from another file and uses it to perform addition.
+| File | Description |
+|------|-------------|
+| `0-add.py` | Import an addition function and use it |
+| `1-calculation.py` | Import several arithmetic functions and display results |
+| `2-args.py` | Print the number and list of command-line arguments |
+| `3-infinite_add.py` | Add all numbers passed from the command line |
+| `4-hidden_discovery.py` | List names defined in a module except special ones |
+| `5-variable_load.py` | Import and print a variable from another file |
+| `hidden_4.pyc` | Compiled helper module used by the discovery exercise |
 
-### 1-calculation.py
-A script that imports multiple functions from a file and uses them to perform various calculations.
+## Running a script
 
-### 2-args.py
-A script that demonstrates how to handle command-line arguments in Python.
-
-### 3-infinite_add.py
-A script that adds all the numbers passed as command-line arguments.
-
-### 4-hidden_discovery.py
-A script that imports a module and prints all names defined in it that do not start with `__`.
-
-### 5-variable_load.py
-A script that imports a variable from another file and prints its value.
+```bash
+python3 <filename>.py
+```

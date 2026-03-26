@@ -4,7 +4,7 @@ import csv
 import json
 from pathlib import Path
 
-from flask import Flask, redirect, render_template_string, request, url_for
+from flask import Flask, redirect, render_template, request, url_for
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -24,9 +24,25 @@ def read_products_from_json():
         data = json.load(file)
 
     if isinstance(data, list):
-        return data
+        return [
+            {
+                'id': int(item.get('id', 0)),
+                'name': item.get('name', ''),
+                'category': item.get('category', ''),
+                'price': item.get('price', ''),
+            }
+            for item in data
+        ]
     if isinstance(data, dict):
-        return data.get('products', [])
+        return [
+            {
+                'id': int(item.get('id', 0)),
+                'name': item.get('name', ''),
+                'category': item.get('category', ''),
+                'price': item.get('price', ''),
+            }
+            for item in data.get('products', [])
+        ]
     return []
 
 
@@ -34,9 +50,10 @@ def read_products_from_csv():
     """Read and parse product data from the CSV file."""
     csv_file = BASE_DIR / 'products.csv'
     with open(csv_file, 'r', encoding='utf-8', newline='') as file:
-        rows = csv.DictReader(line.lstrip() for line in file)
+        rows = csv.DictReader((line.lstrip() for line in file), skipinitialspace=True)
         return [
             {
+                'id': int(row.get('id', 0)),
                 'name': row.get('name', '').strip(),
                 'category': row.get('category', '').strip(),
                 'price': row.get('price', '').strip(),
@@ -48,7 +65,9 @@ def read_products_from_csv():
 @app.route('/products')
 def products():
     """Display products loaded from either a JSON or CSV source."""
-    source = request.args.get('source', 'json')
+    source = request.args.get('source', 'json').strip().lower()
+    id_param = request.args.get('id')
+    error = None
 
     if source == 'json':
         products_list = read_products_from_json()
@@ -56,12 +75,19 @@ def products():
         products_list = read_products_from_csv()
     else:
         products_list = []
+        error = 'Wrong source'
 
-    template_path = BASE_DIR / 'product_display.html'
-    with open(template_path, 'r', encoding='utf-8') as file:
-        template = file.read()
+    if error is None and id_param is not None:
+        try:
+            product_id = int(id_param)
+            products_list = [p for p in products_list if p.get('id') == product_id]
+            if not products_list:
+                error = 'Product not found'
+        except ValueError:
+            products_list = []
+            error = 'Product not found'
 
-    return render_template_string(template, products=products_list)
+    return render_template('product_display.html', products=products_list, error=error)
 
 
 if __name__ == '__main__':

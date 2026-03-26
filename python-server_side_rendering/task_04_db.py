@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sqlite3
 
-from flask import Flask, redirect, render_template_string, request, url_for
+from flask import Flask, redirect, render_template, request, url_for
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / 'products.db'
@@ -26,9 +26,25 @@ def read_products_from_json():
         data = json.load(file)
 
     if isinstance(data, list):
-        return data
+        return [
+            {
+                'id': int(item.get('id', 0)),
+                'name': item.get('name', ''),
+                'category': item.get('category', ''),
+                'price': item.get('price', ''),
+            }
+            for item in data
+        ]
     if isinstance(data, dict):
-        return data.get('products', [])
+        return [
+            {
+                'id': int(item.get('id', 0)),
+                'name': item.get('name', ''),
+                'category': item.get('category', ''),
+                'price': item.get('price', ''),
+            }
+            for item in data.get('products', [])
+        ]
     return []
 
 
@@ -36,9 +52,10 @@ def read_products_from_csv():
     """Read and parse product data from the CSV file."""
     csv_file = BASE_DIR / 'products.csv'
     with open(csv_file, 'r', encoding='utf-8', newline='') as file:
-        rows = csv.DictReader(line.lstrip() for line in file)
+        rows = csv.DictReader((line.lstrip() for line in file), skipinitialspace=True)
         return [
             {
+                'id': int(row.get('id', 0)),
                 'name': row.get('name', '').strip(),
                 'category': row.get('category', '').strip(),
                 'price': row.get('price', '').strip(),
@@ -52,7 +69,7 @@ def read_products_from_sql():
     with sqlite3.connect(DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            'SELECT name, category, price FROM Products'
+            'SELECT id, name, category, price FROM Products'
         ).fetchall()
     return [dict(row) for row in rows]
 
@@ -60,7 +77,8 @@ def read_products_from_sql():
 @app.route('/products')
 def products():
     """Display products loaded from JSON, CSV, or SQLite."""
-    source = request.args.get('source', 'json')
+    source = request.args.get('source', 'json').strip().lower()
+    id_param = request.args.get('id')
     error = None
 
     try:
@@ -77,16 +95,17 @@ def products():
         products_list = []
         error = 'Database error'
 
-    template_path = BASE_DIR / 'product_display.html'
-    with open(template_path, 'r', encoding='utf-8') as file:
-        template = file.read()
+    if error is None and id_param is not None:
+        try:
+            product_id = int(id_param)
+            products_list = [p for p in products_list if int(p.get('id', 0)) == product_id]
+            if not products_list:
+                error = 'Product not found'
+        except ValueError:
+            products_list = []
+            error = 'Product not found'
 
-    return render_template_string(
-        template,
-        products=products_list,
-        error=error,
-        selected_source=source
-    )
+    return render_template('product_display.html', products=products_list, error=error)
 
 
 if __name__ == '__main__':

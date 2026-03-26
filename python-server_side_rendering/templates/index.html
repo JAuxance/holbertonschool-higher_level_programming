@@ -7,21 +7,13 @@
 
 <body>
     {% include 'header.html' %}
-    {% if items is defined and items %}
-    <h1>Items List</h1>
-    <ul>
-        {% for item in items %}
-        {% if item == '' or item is none %}
-        <li>Empty</li>
-        {% else %}
-        <li>{{ item }}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    {% else %}
     <h1>Welcome to My Flask App</h1>
-    <p>This is the home page of the application.</p>
-    {% endif %}
+    <p>This is a simple Flask application.</p>
+    <ul>
+        <li>Flask</li>
+        <li>HTML</li>
+        <li>Templates</li>
+    </ul>
     {% include 'footer.html' %}
 </body>
 

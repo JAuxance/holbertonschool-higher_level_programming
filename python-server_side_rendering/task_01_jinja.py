@@ -1,13 +1,8 @@
 """Basic Flask application rendering static templates."""
 
-import json
-from pathlib import Path
-
 from flask import Flask, render_template
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-app = Flask(__name__, template_folder=str(BASE_DIR / 'templates'))
+app = Flask(__name__)
 
 
 @app.route('/')

@@ -27,5 +27,6 @@ def contact():
     """Render the contact page."""
     return render_template('contact.html')
 
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

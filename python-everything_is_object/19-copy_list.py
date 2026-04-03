@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-"""Define a function that returns a copy of a list."""
+"""Define a function that copies a list."""
 
 
 def copy_list(a_list):
-    """Return a shallow copy of a list."""
-    return a_list.copy()
+    """Return a copy of a list."""
+    copy_list = []
+
+    for item in a_list:
+        copy_list.append(item)
+
+    return copy_list
